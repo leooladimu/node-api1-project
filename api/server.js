@@ -41,7 +41,7 @@ server.get('/api/users', (req, res) => {
 
 server.get('/api/users/:id', (req, res) => {
   User.findById(req.params.id).then(user => {
-    if(!user){
+    if (!user){
       res.status(404).json({
         message: 'No one with that ID',
       })
