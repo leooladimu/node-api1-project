@@ -43,7 +43,7 @@ server.get('/api/users/:id', (req, res) => {
   User.findById(req.params.id).then(user => {
     if (!user){
       res.status(404).json({
-        message: 'No one with that ID',
+        message: 'does not exist',
       })
     }
     console.log(user)
@@ -62,7 +62,7 @@ server.delete('/api/users/:id', async (req, res ) => {
     const userDelete = await User.findById(req.params.id)
     if (!userDelete) {
       res.status(404).json({
-        message: 'No such person here',
+        message: 'does not exist',
       })
     } else {
       const userdelete = await User.remove(userDelete.id)
@@ -82,12 +82,12 @@ server.put('/api/users/:id', async (req, res) => {
     const possibleUser = await User.findById(req.params.id);
     if (!possibleUser) {
       res.status(404).json({
-        message: 'Nope'
+        message: 'does not exist'
       })
     } else {
       if (!req.body.name || !req.body.bio) {
       res.status(400).json({
-        message: 'Your name and bio suck.',
+        message: 'provide name and bio',
       })
       } else {
         const updatedUser = await User.update(req.params.id, req.body)
