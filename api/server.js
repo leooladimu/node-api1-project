@@ -1,6 +1,6 @@
 // BUILD YOUR SERVER HERE
 const express = require("express"); 
-const Users = require("./users-model.js");
+const Users = require("./users/model");
 
 const server = express();
 
