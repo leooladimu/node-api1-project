@@ -23,7 +23,7 @@ server.post('/api/users', (req, res) => {
         stack: err.stack,
       })
     })
-    }
+  }
 });
 
 server.get('/api/users', (req, res) => {
